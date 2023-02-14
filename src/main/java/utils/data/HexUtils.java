@@ -1,4 +1,4 @@
-package utils;
+package utils.data;
 
 import java.io.ByteArrayOutputStream;
 import java.math.BigInteger;

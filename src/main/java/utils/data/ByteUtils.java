@@ -1,4 +1,4 @@
-package utils;
+package utils.data;
 
 import java.security.SecureRandom;
 import java.util.BitSet;

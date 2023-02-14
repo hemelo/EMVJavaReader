@@ -1,8 +1,5 @@
 package unit;
 
-import utils.ByteUtils;
-import utils.HexUtils;
-
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -14,6 +11,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import config.LogTestExecutionTimeExtension;
 import config.UtilsTestConfig;
+import utils.data.ByteUtils;
+import utils.data.HexUtils;
 
 //@TestMethodOrder(OrderAnnotation.class)
 @ExtendWith(LogTestExecutionTimeExtension.class)
