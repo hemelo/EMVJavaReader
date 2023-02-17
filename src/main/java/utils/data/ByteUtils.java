@@ -7,6 +7,25 @@ public class ByteUtils {
 	
 	final static char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
 	
+	public static byte[] mergeArrays(byte[]... arrays) {
+		
+		int length = 0;
+		int past = 0;
+		
+		for (byte[] array : arrays) {
+			length += array.length;
+		}
+		
+		byte[] result = new byte[length];
+		
+		for (int i = 0; i < arrays.length; i++) {
+			System.arraycopy(arrays[i], 0, result, past, arrays[i].length);
+			past += arrays[i].length;
+		}
+		
+		return result;
+	}
+
 	public static byte[] copy(byte[] array) {
 		
 		return copy(array, 0, array.length);
@@ -20,8 +39,8 @@ public class ByteUtils {
 			throw new IllegalArgumentException("Argument \"start\" and \"length\" are invalid ");
 		}
 		
-		byte[] copy = new byte[array.length];
-		System.arraycopy(array, length, copy, start, length);
+		byte[] copy = new byte[length];
+		System.arraycopy(array, start, copy, 0, length);
 		return copy;
 	}
 	
