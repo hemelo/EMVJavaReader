@@ -18,11 +18,12 @@ public class LogTestExecutionTimeExtension implements BeforeTestExecutionCallbac
 		//LOG.info("Starting test: " + context.getDisplayName());
 		context.getStore(ExtensionContext.Namespace.create(getClass(), context.getRequiredTestMethod())).put("startTime", Instant.now());
 	}
-
-    @Override
-    public void afterTestExecution(ExtensionContext context) throws Exception {
+	
+	@Override
+    public void afterTestExecution(ExtensionContext context) {
     	Instant startTime = (Instant) context.getStore(ExtensionContext.Namespace.create(getClass(), context.getRequiredTestMethod())).remove("startTime");
 	  	Duration duration = Duration.between(startTime, Instant.now());
-	  	LOG.info("Finished test: " + context.getDisplayName() + " in " + duration.toMillis() + "ms");
+	  	
+	  	LOG.info("Finished test: " + context.getTestMethod().get().getName() + " in " + duration.toMillis() + "ms");
     }
 }
